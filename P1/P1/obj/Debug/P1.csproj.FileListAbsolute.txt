@@ -1,0 +1,8 @@
+c:\users\andreea\documents\visual studio 2017\Projects\P1\P1\bin\Debug\P1.exe.config
+c:\users\andreea\documents\visual studio 2017\Projects\P1\P1\bin\Debug\P1.exe
+c:\users\andreea\documents\visual studio 2017\Projects\P1\P1\bin\Debug\P1.pdb
+c:\users\andreea\documents\visual studio 2017\Projects\P1\P1\bin\Debug\MPI.dll
+c:\users\andreea\documents\visual studio 2017\Projects\P1\P1\bin\Debug\MPI.xml
+c:\users\andreea\documents\visual studio 2017\Projects\P1\P1\obj\Debug\P1.csprojResolveAssemblyReference.cache
+c:\users\andreea\documents\visual studio 2017\Projects\P1\P1\obj\Debug\P1.exe
+c:\users\andreea\documents\visual studio 2017\Projects\P1\P1\obj\Debug\P1.pdb
