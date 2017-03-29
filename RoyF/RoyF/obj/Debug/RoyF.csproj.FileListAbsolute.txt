@@ -1,0 +1,8 @@
+c:\users\andreea\documents\visual studio 2017\Projects\RoyF\RoyF\bin\Debug\RoyF.exe.config
+c:\users\andreea\documents\visual studio 2017\Projects\RoyF\RoyF\bin\Debug\RoyF.exe
+c:\users\andreea\documents\visual studio 2017\Projects\RoyF\RoyF\bin\Debug\RoyF.pdb
+c:\users\andreea\documents\visual studio 2017\Projects\RoyF\RoyF\bin\Debug\MPI.dll
+c:\users\andreea\documents\visual studio 2017\Projects\RoyF\RoyF\bin\Debug\MPI.xml
+c:\users\andreea\documents\visual studio 2017\Projects\RoyF\RoyF\obj\Debug\RoyF.csprojResolveAssemblyReference.cache
+c:\users\andreea\documents\visual studio 2017\Projects\RoyF\RoyF\obj\Debug\RoyF.exe
+c:\users\andreea\documents\visual studio 2017\Projects\RoyF\RoyF\obj\Debug\RoyF.pdb
