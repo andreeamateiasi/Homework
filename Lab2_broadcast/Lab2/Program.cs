@@ -27,9 +27,11 @@ namespace Lab2
                 {
                     for (i = 0; i < 50; ++i)
                     {
-                        Random rnd = new Random();
+                        /*Random rnd = new Random();
                         b[i] = rnd.Next(1,10);
-                        Console.WriteLine("rand "+ i+" = "+b[i]);
+                        Console.WriteLine("rand "+ i+" = "+b[i]);*/
+                        b[i] = i;
+                        Console.WriteLine("rand " + i + " = " + b[i]);
                     }
                 }
                 Communicator.world.Broadcast<int[]>(ref b, 0);
@@ -47,7 +49,7 @@ namespace Lab2
                         {
                             Communicator.world.Send<int>(dummy, j, 1);
                         }
-                        Console.WriteLine("P: "+ rank+" found it  !! "+b[i]+" !! at global index "+j+"\n");
+                        Console.WriteLine("P: "+ rank+" found it  !! "+b[i]+" !! at global index "+i+"\n");
                         
                         myfound = true;
                     }
