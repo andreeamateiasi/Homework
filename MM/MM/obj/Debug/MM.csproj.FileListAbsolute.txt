@@ -3,6 +3,5 @@ c:\users\andreea\documents\visual studio 2017\Projects\MM\MM\bin\Debug\MM.exe
 c:\users\andreea\documents\visual studio 2017\Projects\MM\MM\bin\Debug\MM.pdb
 c:\users\andreea\documents\visual studio 2017\Projects\MM\MM\bin\Debug\MPI.dll
 c:\users\andreea\documents\visual studio 2017\Projects\MM\MM\bin\Debug\MPI.xml
-c:\users\andreea\documents\visual studio 2017\Projects\MM\MM\obj\Debug\MM.csprojResolveAssemblyReference.cache
 c:\users\andreea\documents\visual studio 2017\Projects\MM\MM\obj\Debug\MM.exe
 c:\users\andreea\documents\visual studio 2017\Projects\MM\MM\obj\Debug\MM.pdb
