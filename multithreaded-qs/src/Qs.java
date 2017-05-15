@@ -1,14 +1,12 @@
 import java.util.ArrayList;
 
-//Use it by creating the QuickSorter object and calling start().
 
 public class Qs extends Thread {
 	private ArrayList<Integer> arr;
 	int left;
 	int right;
 
-	public Qs(ArrayList<Integer> arr, int left, int right, ThreadGroup g) {
-		super(g, "QuickSorter");
+	public Qs(ArrayList<Integer> arr, int left, int right) {
 		this.arr = arr;
 		this.left = left;
 		this.right = right;
@@ -26,7 +24,7 @@ public class Qs extends Thread {
 				for (; j > 0 && tmp < arr.get(j - 1); j--)
 					arr.set(j, arr.get(j - 1));
 
-				arr.set(j, tmp);// [j] = tmp;
+				arr.set(j, tmp);
 			}
 			return;
 		}
@@ -47,9 +45,9 @@ public class Qs extends Thread {
 			arr.set(i, arr.get(j));
 			arr.set(j, tmp);
 		}
-		Qs leftQS = new Qs(arr, left, i - 1, this.getThreadGroup());
+		Qs leftQS = new Qs(arr, left, i - 1 );
 		leftQS.start();
-		Qs rightQS = new Qs(arr, i + 1, right, this.getThreadGroup());
+		Qs rightQS = new Qs(arr, i + 1, right);
 		rightQS.start();
 
 	}
@@ -64,8 +62,8 @@ public class Qs extends Thread {
 		for (int t = 0; t < 10; t++) {
 			System.out.println(t + " " + arr.get(t));
 		}
-		ThreadGroup group = new ThreadGroup("QuickSorter");
-		Thread t = new Qs(arr, 0, arr.size() - 1, group);
+		//ThreadGroup group = new ThreadGroup("QuickSorter");
+		Thread t = new Qs(arr, 0, arr.size() - 1);
 		t.start();
 		while (t.isAlive()) {
 		}
