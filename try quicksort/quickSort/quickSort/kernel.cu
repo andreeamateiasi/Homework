@@ -37,7 +37,7 @@ int main(){
 
 
  __global__ void quickSort(int arr[], int left, int right) {
-
+	 
 if (left >= right || left < 0 || right >= n) {
 			return;
 		}
@@ -69,7 +69,7 @@ if (right - left < n) {
 			arr[j] = tmp;
 			
 		}
-		quickSort<<< 1, n >>>(arr, left, i - 1, );
+		quickSort<<< 1, n >>>(arr, left, i - 1);
 		
 		quickSort<<< 1, n >>>(arr, i + 1, right);
 		

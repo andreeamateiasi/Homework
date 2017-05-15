@@ -29,6 +29,7 @@ __global__ void find(int *a, int elem, int *position){
 		if (tid < s){
 			if (elem == sdata[tid + s]){
 				position[i] == sdata[tid + s];
+				i++;
 			}
 		}
 		__syncthreads();

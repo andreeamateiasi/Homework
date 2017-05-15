@@ -9,6 +9,7 @@
 
 void random_matrix(int *array);
 void print_matrix(int *array);
+
 __global__ void filter(int *in, int *out);
 
 int main(){
@@ -106,3 +107,4 @@ __global__ void filter(int *in, int *out) {
 
 	out[i * n + j] = sum / no_elements;
 }
+
