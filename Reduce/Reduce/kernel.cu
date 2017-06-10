@@ -17,7 +17,7 @@
 #define threads 10
 
 #define SIZE 10
-__global__ void find(int *a, int elem, int *position){
+__global__ void find(int *a, int *elem, int *position){
     __shared__ int sdata[SIZE];
 	unsigned int tid = threadIdx.x;
 	unsigned int i = blockIdx.x * blockDim.x + threadIdx.x;
@@ -27,8 +27,9 @@ __global__ void find(int *a, int elem, int *position){
 	__syncthreads();
 	for (unsigned int s = blockDim.x / 2; s >= 1; s = s / 2){
 		if (tid < s){
-			if (elem == sdata[tid + s]){
-				position[i] == sdata[tid + s];
+			if (*elem == sdata[tid + s]){
+				position[i] == tid + s;
+				printf("pos for %d = %d\n",i, tid+s);
 				i++;
 			}
 		}
@@ -38,22 +39,24 @@ __global__ void find(int *a, int elem, int *position){
 }
 
 int main(){
-	int i, elemToBeFound;
+	int i, j, *h_elemToBeFound, *d_elemToBeFound;
 	srand(time(NULL));
 
 	int *host_a, *h_position;
 	host_a = (int*)malloc(SIZE * sizeof(int));
 	h_position = (int*)malloc(SIZE * sizeof(int));
-
-	int d;
-
+	h_elemToBeFound = (int*)malloc(sizeof(int));
 	int *dev_a;
 	int *d_position;
 
 	cudaMalloc((void **)&dev_a, SIZE * sizeof(int));
 	cudaMalloc((void **)&d_position, SIZE * sizeof(int));
 
-	elemToBeFound = rand() % 10 + 1;
+	cudaMalloc((void **)&d_elemToBeFound, sizeof(int));
+
+	*h_elemToBeFound = rand() % 10 + 1;
+
+	printf("elem = %d", *h_elemToBeFound);
 	for (i = 0; i < SIZE; i++){
 		host_a[i] = rand() % 10 + 1;
 
@@ -62,20 +65,32 @@ int main(){
 		printf("%d ", host_a[i]);
 
 	}
+	/*for (i = 0; i < SIZE; i++)
+		for (j = 0; j < SIZE; j++)
+			h_position[i+j] == 0;*/
 	printf(" ");
+	cudaMemcpy(d_position, h_position, SIZE * sizeof(int), cudaMemcpyHostToDevice);
 
 	cudaMemcpy(dev_a, host_a, SIZE * sizeof(int), cudaMemcpyHostToDevice);
+	cudaMemcpy(d_elemToBeFound, h_elemToBeFound, sizeof(int), cudaMemcpyHostToDevice);
 
-	find<<<1, threads>>>(dev_a, elemToBeFound, d_position);
+	find<<<1, threads>>>(dev_a, d_elemToBeFound, d_position);
 
 	cudaMemcpy(h_position, d_position, SIZE * sizeof(int), cudaMemcpyDeviceToHost);
+	//cudaMemcpy(h_position, d_position, SIZE * sizeof(int), cudaMemcpyDeviceToHost);
+	cudaMemcpy(h_elemToBeFound, d_elemToBeFound, sizeof(int), cudaMemcpyDeviceToHost);
 
-
+	for (i = 0; i < SIZE; i++)
+		//for (j = 0; j < SIZE; j++)
+			printf("[%d] = %d",i,h_position[i ]);
+	for (i = 0; i < SIZE; i++) {
+		printf("%d ", host_a[i]);
+	}
 
 	cudaFree(dev_a);
 	cudaFree(d_position);
 
 	printf(" ");
-
+	scanf("%d", i);
 		return 0;
 }
